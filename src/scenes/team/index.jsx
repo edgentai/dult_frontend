@@ -54,7 +54,8 @@ const Team = () => {
   const sentiment = api_data?.message?.tweet_data?.Sentiment;
   const sub_class = api_data?.message?.tweet_data?.Sub_Class;
   const super_class = api_data?.message?.tweet_data?.Super_Class;
-  
+  const user_message = api_data?.message?.tweet_data?.user_message;
+
   var req_data = []
   for (let idx = 0; idx < id.length; idx += 1){
     const req_dict = {};
@@ -64,6 +65,7 @@ const Team = () => {
     req_dict['sentiment'] = sentiment[idx];
     req_dict['subclass'] = sub_class[idx];
     req_dict['superclass'] = super_class[idx];
+    req_dict['usermessage'] = user_message[idx];
     req_data.push(req_dict);
   }
   // console.log("req", id);
@@ -96,6 +98,11 @@ const Team = () => {
     {
       field: "superclass",
       headerName: "Super_Class",
+      flex: 1,
+    },
+    {
+      field: "usermessage",
+      headerName: "User_Message",
       flex: 1,
     },
     // {

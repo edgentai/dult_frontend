@@ -112,7 +112,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.intent?.Actionable}
+            title={data?.message?.intent["Urgent Actionable"]}
             subtitle="Total Actionable Items"
               // progress="0.30"
               // increase="+5%"
@@ -131,7 +131,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.intent?.Appeal}
+            title={data?.message?.intent["Appeal/Complaint/Request"]}
             subtitle="Total Appeal Items"
               // progress="0.80"
               // increase="+43%"

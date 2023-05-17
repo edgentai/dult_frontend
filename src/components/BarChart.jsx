@@ -34,16 +34,16 @@ const BarChart = ({ isDashboard = false }) => {
   // console.log("api_data",req)
 
   const req_data = [
-    {"country" : 'Crew Behaviors', "count" : api_data?.message?.super['Crew Behaviors']},
-    {"country" : 'PASS/Reserved Seat Issue', "count" : api_data?.message?.super["PASS/Reserved Seat Issue"]},
-    {"country" : 'Ticket Related Issue', "count" : api_data?.message?.super["Ticket Related Issue"]},
-    {"country" : 'Vehicle Related Issue', "count" : api_data?.message?.super["Vehicle Related Issue"]},
-    {"country" : 'Route', "count" : api_data?.message?.super["Route"]},
-    {"country" : 'Facility Issue', "count" : api_data?.message?.super["Facility Issue"]},
-    {"country" : 'Website/App Related Issue', "count" : api_data?.message?.super["Website/App Related Issue"]},
+    {"country" : 'Crew Behaviors', "count" : api_data?.message?.super['Crew Behaviors']??0},
+    {"country" : 'PASS/Reserved Seat Issue', "count" : api_data?.message?.super["PASS/Reserved Seat Issue"]??0},
+    {"country" : 'Ticket Related Issue', "count" : api_data?.message?.super["Ticket Related Issue"]??0},
+    {"country" : 'Vehicle Related Issue', "count" : api_data?.message?.super["Vehicle Related Issue"]??0},
+    {"country" : 'Route', "count" : api_data?.message?.super["Route"]??0},
+    {"country" : 'Facility Issue', "count" : api_data?.message?.super["Facility Issue"]??0},
+    {"country" : 'Website/App Related Issue', "count" : api_data?.message?.super["Website/App Related Issue"]??0},
   ]
   // const req = api_data["message"]
-  // console.log("api_data",req['super'])
+  console.log("api_data",req_data)
   // const req_data = [
   //   {"country" : 'Crew Behaviors', "count" : req["super"]["Crew Behaviors"]},
   //   {"country" : 'PASS/Reserved Seat Issue', "count" : req["super"]["PASS/Reserved Seat Issue"]},

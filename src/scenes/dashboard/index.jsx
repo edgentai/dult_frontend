@@ -76,7 +76,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.count_card}
+            title={data?.message?.count_card ?? 0}
             subtitle="Total Tweet Analyzed"
               icon={
                 <EmailIcon
@@ -93,7 +93,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.today_count_card}
+            title={data?.message?.today_count_card ?? 0}
             subtitle="Today's Tweet Count"
             // progress="0.50"
             // increase="+21%"
@@ -112,7 +112,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.intent["Urgent Actionable"]}
+            title={data?.message?.intent["Urgent Actionable"] ?? 0}
             subtitle="Total Actionable Items"
               // progress="0.30"
               // increase="+5%"
@@ -131,7 +131,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.intent["Appeal/Complaint/Request"]}
+            title={data?.message?.intent["Appeal/Complaint/Request"] ?? 0}
             subtitle="Total Appeal Items"
               // progress="0.80"
               // increase="+43%"
@@ -270,7 +270,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.sentiment?.Negative}
+            title={data?.message?.sentiment?.Negative ?? 0}
             subtitle="Negative Sentiment Tweets"
               icon={
                 <EmailIcon
@@ -321,7 +321,7 @@ const Dashboard = () => {
             justifyContent="center"
           >
             <StatBox
-            title={data?.message?.sentiment?.Positive}
+            title={data?.message?.sentiment?.Positive ?? 0}
             subtitle="Positive Sentiment Tweets"
               icon={
                 <EmailIcon

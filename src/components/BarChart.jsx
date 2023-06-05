@@ -19,7 +19,6 @@ const BarChart = ({ isDashboard = false }) => {
   }, []);
 
 	function getData() {
-		console.log('abs');
 		axios
 		  .post("https://jw1so5sptg.execute-api.us-east-1.amazonaws.com/beta")
 		  .then((response) => {

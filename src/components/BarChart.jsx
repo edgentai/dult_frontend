@@ -10,6 +10,7 @@ import { Bar } from "react-chartjs-2";
 const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  // console.log("mock data", data)
 
   const [api_data, setdata] = useState({});
 
@@ -19,6 +20,7 @@ const BarChart = ({ isDashboard = false }) => {
   }, []);
 
 	function getData() {
+		console.log('abs');
 		axios
 		  .post("https://jw1so5sptg.execute-api.us-east-1.amazonaws.com/beta")
 		  .then((response) => {

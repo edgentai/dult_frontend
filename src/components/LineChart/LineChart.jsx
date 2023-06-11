@@ -39,13 +39,13 @@ const series = [
 export default function App() {
   return (
     <LineChart width={500} height={300}>
-      <CartesianGrid strokeDasharray="3 3" />
+      {/* <CartesianGrid strokeDasharray="3 3" /> */}
       <XAxis
         dataKey="category"
         type="category"
         allowDuplicatedCategory={false}
       />
-      <YAxis dataKey="value" />
+      <YAxis dataKey="value" orientation="right" />
       <Tooltip />
       <Legend />
       {series.map((s) => (

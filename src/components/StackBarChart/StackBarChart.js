@@ -13,7 +13,7 @@ const colors = ["#8884d8", "#82ca9d", "#ffc658", "#ff7300"]; // Custom colors fo
 
 const StackedBarChart = () => {
   return (
-    <BarChart width={500} height={300} data={data} layout="vertical">
+    <BarChart width={600} height={300} data={data} layout="vertical">
       <XAxis type="number" orientation="top" />
       <YAxis type="category" dataKey="name" />
       <Tooltip />

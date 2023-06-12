@@ -1,0 +1,26 @@
+.page-side-bar {
+    width: 20%;
+    float: left;
+    box-shadow: 5px 0px 50px #00000029;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.navigation-menu {
+    margin-top: 30px;
+}
+
+.navigation-menu ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+.navigation-menu ul li {
+    margin-bottom: 20px;
+}
+.navigation-menu ul li a {
+    color: #868A95;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+.navigation-menu ul li a.active {
+    color: #007AFF;
+}

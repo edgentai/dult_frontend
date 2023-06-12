@@ -18,21 +18,23 @@ const series = [
       { category: "02 APR", value: 4 },
       { category: "03 APR", value: 2 },
       { category: "04 APR", value: 4 },
-      { category: "05 APR", value: 2 },
+      { category: "05 APR", value: 3 },
       { category: "06 APR", value: 4 },
       { category: "07 APR", value: 2 }
-    ]
+    ],
+    color: "green"
   },{
     name: "Series 2",
     data: [
       { category: "01 APR", value: 0 },
       { category: "02 APR", value: 5 },
-      { category: "03 APR", value: 2 },
+      { category: "03 APR", value: 1 },
       { category: "04 APR", value: 6 },
-      { category: "05 APR", value: 3 },
+      { category: "05 APR", value: 1 },
       { category: "06 APR", value: 6 },
       { category: "07 APR", value: 3 }
-    ]
+    ],
+    color: "blue"
   }
 ];
 
@@ -49,7 +51,7 @@ export default function App() {
       <Tooltip />
       <Legend />
       {series.map((s) => (
-        <Line dataKey="value" data={s.data} name={s.name} key={s.name} />
+        <Line dataKey="value" data={s.data} name={s.name} key={s.name} stroke={s.color}/>
       ))}
     </LineChart>
   );

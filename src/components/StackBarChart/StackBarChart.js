@@ -2,7 +2,7 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from "recharts";
 
 const data = [
-  { name: "Ticketing Issue", value1: 8, value2: 4, value3: 6, value4: 8 },
+  { name: "Ticketing Issue", value1: 12, value2: 10, value3: 8, value4: 7 },
   { name: "Crew", value1: 4, value2: 8, value3: 12, value4: 16 },
   { name: "Vehicle related", value1: 6, value2: 12, value3: 18, value4: 24 },
   { name: "Route", value1: 5, value2: 10, value3: 15, value4: 20 },

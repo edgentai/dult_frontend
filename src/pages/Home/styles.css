@@ -19,7 +19,7 @@
     font-size: 20px;
 }
 .content-container .line-chart, .content-container .stack-bar-chart{
-    width: 600px;
+    width: 1000px;
     padding: 15px;
     box-shadow: 0px 0px 56px #00000021;
 }
@@ -27,6 +27,9 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 30px;
+}
+.stack-bar-filter {
+    display: flex;
 }
 .stack-bar-filter label{
     padding-right: 10px;
@@ -50,4 +53,26 @@
 }
 .complains-suggestions {
     margin-right: 10px;
+}
+
+/* .react-date-picker .react-date-picker__inputGroup__month{
+    display: none;
+}
+.react-date-picker .react-date-picker__inputGroup__divider {
+    display: none;
+}
+.react-date-picker .react-date-picker__inputGroup__day {
+    display: none;
+}
+.react-date-picker .react-date-picker__inputGroup__year {
+    display: none;
+} */
+.react-date-picker .react-daterange-picker__inputGroup{
+    min-width: 200px;
+}
+.react-date-picker input{
+    min-width: 20px
+}
+.filter-by-date {
+    padding-right: 10px;
 }

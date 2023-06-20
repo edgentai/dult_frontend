@@ -1,19 +1,21 @@
-import "./index.css";
-import React from "react";
-function CustomSelect(props) {
-  console.log(props);
+import React from 'react';
+import "./style.css";
+
+const CustomSelect = ({ options, value, onChange, disabled, className }) => {
   return (
-   <div>
-        <select name="" id="">
-            {props.placeholder ? 
-                <option value={""}>{props.placeholder}</option>
-                : null
-            }
-            {props.options.map((item, index)=> {
-                return <option key={index} value={item.value}>{item.label}</option>
-            })}
-        </select>
-   </div>
+    <select
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+      className={className}
+    >
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
   );
-}
+};
+
 export default CustomSelect;

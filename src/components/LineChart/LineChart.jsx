@@ -12,7 +12,7 @@ import {
 
 const series = [
   {
-    name: "Series 1",
+    name: "Issue 1",
     data: [
       { category: "01 APR", value: 0 },
       { category: "02 APR", value: 4 },
@@ -24,7 +24,7 @@ const series = [
     ],
     color: "green"
   },{
-    name: "Series 2",
+    name: "Issue 2",
     data: [
       { category: "01 APR", value: 0 },
       { category: "02 APR", value: 5 },

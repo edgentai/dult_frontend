@@ -86,7 +86,7 @@ const Home = ({ isDashboard = false }) => {
           </div>
         </div>
         <div className="line-chart">
-          <div className="stack-bar-chart-header">
+          <div className="stack-bar-chart-header flex-end">
             <div className="stack-bar-filter">
               <label htmlFor="bar-chart-dropdown">View Tweets</label>
               <CustomSelect options={daysOptions} value={daysSelectedValue} onChange={handleSelectChange} disabled={false} className="days-custom-select"></CustomSelect>
@@ -102,7 +102,7 @@ const Home = ({ isDashboard = false }) => {
           <LineChart></LineChart>
         </div>
         <div className="stack-bar-chart">
-          <div className="stack-bar-chart-header">
+          <div className="stack-bar-chart-header flex-end">
             <div className="title">
               <p>Complaint Categories</p>
             </div>

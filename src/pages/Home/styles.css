@@ -73,3 +73,15 @@
     box-shadow: 0px 0px 56px #00000021;
     margin: 20px 0;
 }
+.flex-end {
+    justify-content: flex-end;
+}
+.stack-bar-chart-header > div {
+    padding-left: 15px;
+}
+.stack-bar-chart-header .title {
+    margin-right: auto;
+}
+/* .recharts-layer {
+    font-size: 14px;
+} */

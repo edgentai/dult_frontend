@@ -16,11 +16,10 @@ const colors = ["#F6828C", "#F6E382", "#9182F6", "#F682EA", "#064A94", "#007AFF"
 
 const StackedBarChart = () => {
   return (
-    <BarChart width={1000} height={300} data={data} layout="vertical">
+    <BarChart width={1000} height={300} data={data} layout="vertical" barCategoryGap={5}>
       <XAxis type="number" orientation="top" />
-      <YAxis type="category" dataKey="name" margin={{ left: 20 }} />
+      <YAxis width={100} type="category" dataKey="name" margin={{ left: 40 }} />
       <Tooltip />
-      {/* <Legend /> */}
       <Bar dataKey="value1" stackId="a" fill={colors[0]} barGap={40} />
       <Bar dataKey="value2" stackId="a" fill={colors[1]} barGap={10} />
       <Bar dataKey="value3" stackId="a" fill={colors[2]} barGap={10} />

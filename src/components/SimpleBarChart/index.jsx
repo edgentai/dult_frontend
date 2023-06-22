@@ -16,7 +16,7 @@ const colors = ["#F6828C"];
 
 const SimpleBarChart = () => {
   return (
-    <BarChart width={1000} height={300} data={data} layout="vertical">
+    <BarChart width={1000} height={400} data={data} layout="vertical">
       <XAxis type="number" orientation="top" />
       <YAxis type="category" dataKey="" margin={{ left: 20 }} />
       <Tooltip />

@@ -15,50 +15,25 @@ import CustomSelect from "../../components/CustomSelect";
 const Home = ({ isDashboard = false }) => {
   const [startDateValue, startDateOnChange] = useState(["", ""]);
   const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState(["", ""]);
-  const [daysSelectedValue, setDaysSelectedValue] = useState("");
-  const [daysSelectedValueBarChart, setDaysSelectedValueBarChart] = useState("");
-  const [mathSelectedValue, setMathSelectedValue] = useState("");
-
-  const mathOptions = [
-    {
-      label: "Sum",
-      value: "sum",
-    },
-    {
-      label: "Minimum",
-      value: "minimum",
-    },
-    {
-      label: "Maximum",
-      value: "maximum",
-    },
-  ];
+  const [daysSelectedValue, setDaysSelectedValue] = useState("daily");
 
   const daysOptions = [
     {
-      label: "1 day",
-      value: "1",
+      label: "daily",
+      value: "daily",
     },
     {
-      label: "7 days",
-      value: "7",
+      label: "weekly",
+      value: "weekly",
     },
     {
-      label: "30 days",
-      value: "30",
+      label: "monthly",
+      value: "monthly",
     },
   ];
 
   const handleSelectChange = (event) => {
     setDaysSelectedValue(event.target.value);
-  };
-
-  const handleMathSelectChange = (event) => {
-    setMathSelectedValue(event.target.value);
-  };
-
-  const handledaysSelectChangeBarChart = (event) => {
-    setDaysSelectedValueBarChart(event.target.value);
   };
 
   return (
@@ -67,6 +42,11 @@ const Home = ({ isDashboard = false }) => {
       <div className="content-container">
         <div className="all-complains-container">
           <div className="title complains-suggestions-section">
+            <div className="complains-suggestions">
+              <p className="com-text">Total Tweets</p>
+              <p className="com-per">547</p>
+            </div>
+
             <div className="complains-suggestions">
               <p className="com-text">Complaints</p>
               <p className="com-per">18</p>
@@ -91,9 +71,6 @@ const Home = ({ isDashboard = false }) => {
               <label htmlFor="bar-chart-dropdown">View Tweets</label>
               <CustomSelect options={daysOptions} value={daysSelectedValue} onChange={handleSelectChange} disabled={false} className="days-custom-select"></CustomSelect>
             </div>
-            <div>
-              <CustomSelect options={mathOptions} value={mathSelectedValue} onChange={handleMathSelectChange} disabled={false} className={"math-custom-select"}></CustomSelect>
-            </div>
             <div className="date-picker-wrapper">
               <span className="filter-by-date">Filter by Date</span>
               <DateRangePicker value={startDateValueStackBarChart} onChange={setStartDateValueStackBarChart} yearPlaceholder="YYYY" dayPlaceholder="DD" monthPlaceholder="MM"></DateRangePicker>
@@ -107,11 +84,6 @@ const Home = ({ isDashboard = false }) => {
               <p>Complaint Categories</p>
             </div>
 
-            <div className="stack-bar-filter">
-              <label htmlFor="bar-chart-dropdown">View Tweets</label>
-              <CustomSelect options={daysOptions} value={daysSelectedValueBarChart} onChange={handledaysSelectChangeBarChart} disabled={false} className="days-custom-select-bar-chart"></CustomSelect>
-            </div>
-
             <div className="date-picker-wrapper">
               <span className="filter-by-date">Filter by Date</span>
               <DateRangePicker value={startDateValue} onChange={startDateOnChange} yearPlaceholder="YYYY" dayPlaceholder="DD" monthPlaceholder="MM"></DateRangePicker>
@@ -119,9 +91,39 @@ const Home = ({ isDashboard = false }) => {
           </div>
           <StackBarChart />
         </div>
-
-        <div className="simple-bar-chart">
-          <SimpleBarChart />
+      </div>
+      <div className="tweets-topic-container">
+        <div className="tweets-heading">
+          <h3>Top Topics of this Week</h3>
+        </div>
+        <div className="all-tweets-btn">
+          <button className="tweets-btn">
+            <span>Positive</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Honest</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Friendly Staff</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Good Service</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Best support team</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Bus arrived on time</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Appreciate the driver</span>
+          </button>
+          <button className="tweets-btn light-brown">
+            <span>Neutral</span>
+          </button>
+          <button className="tweets-btn light-pink">
+            <span>Didn't get change</span>
+          </button>
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@ const series = [
 
 export default function App() {
   return (
-    <LineChart width={1000} height={300}>
+    <LineChart width={800} height={300}>
       {/* <CartesianGrid strokeDasharray="3 3" /> */}
       <XAxis
         dataKey="category"

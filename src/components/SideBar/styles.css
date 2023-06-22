@@ -1,9 +1,8 @@
 .page-side-bar {
-    width: 20%;
-    float: left;
+    width: 10%;
     box-shadow: 5px 0px 50px #00000029;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 30px 10px;
 }
 .navigation-menu {
     margin-top: 30px;

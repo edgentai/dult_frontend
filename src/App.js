@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import StackBarChart from "./components/StackBarChart/StackBarChart";
+import StackBarChart from "./components/StackBarChart";
 import Home from "./pages/Home/Home";
 import Team from "./pages/Team";
 import { RecoilRoot } from "recoil";

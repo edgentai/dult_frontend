@@ -20,12 +20,12 @@ const StackedBarChart = () => {
       <XAxis type="number" orientation="top" />
       <YAxis width={100} type="category" dataKey="name" margin={{ left: 40 }} />
       <Tooltip />
-      <Bar dataKey="value1" stackId="a" fill={colors[0]} barGap={40} />
-      <Bar dataKey="value2" stackId="a" fill={colors[1]} barGap={10} />
-      <Bar dataKey="value3" stackId="a" fill={colors[2]} barGap={10} />
-      <Bar dataKey="value4" stackId="a" fill={colors[3]} barGap={10} />
-      <Bar dataKey="value5" stackId="a" fill={colors[4]} barGap={10} />
-      <Bar dataKey="value6" stackId="a" fill={colors[5]} barGap={10} />
+      <Bar dataKey="value1" stackId="a" fill={colors[0]} />
+      <Bar dataKey="value2" stackId="a" fill={colors[1]} />
+      <Bar dataKey="value3" stackId="a" fill={colors[2]} />
+      <Bar dataKey="value4" stackId="a" fill={colors[3]} />
+      <Bar dataKey="value5" stackId="a" fill={colors[4]} />
+      <Bar dataKey="value6" stackId="a" fill={colors[5]} />
     </BarChart>
   );
 };

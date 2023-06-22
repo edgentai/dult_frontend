@@ -1,9 +1,9 @@
 import "./styles.css";
 import React, { useState, useEffect } from "react";
-import SideBar from "../../components/SideBar/Sidebar";
-import LineChart from "../../components/LineChart/LineChart";
-import StackBarChart from "../../components/StackBarChart/StackBarChart";
-import SimpleBarChart from "../../components/SimpleBarChart/SimpleBarChart";
+import SideBar from "../../components/SideBar";
+import LineChart from "../../components/LineChart";
+import StackBarChart from "../../components/StackBarChart";
+import SimpleBarChart from "../../components/SimpleBarChart";
 import "react-date-picker/dist/DatePicker.css";
 
 import DateRangePicker from "@wojtekmaj/react-daterange-picker";

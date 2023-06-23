@@ -12,7 +12,7 @@ export default function App() {
             </a>
           </li>
           <li>
-            <a href="">Table</a>
+            <a href="/team">Table</a>
           </li>
           <li>
             <a href="">Reports</a>

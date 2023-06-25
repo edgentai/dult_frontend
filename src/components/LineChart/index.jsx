@@ -10,6 +10,11 @@ import {
   Legend
 } from "recharts";
 
+// Appeal/Complaint/Request is series 1
+// Urgent Actionable - series 2 
+// if anyone is empty make it 0 
+
+
 
 
 

@@ -15,13 +15,15 @@ const Home = () => {
   const [startDateValue, startDateOnChange] = useState(["", ""]);
   const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState(["", ""]);
   const [daysSelectedValue, setDaysSelectedValue] = useState("daily");
-  const [cardData, setCardData] = useState("");
+  const [cardData, setCardData] = useState({});
 
-  // useEffect(() => {
-  //   fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/card-data/")
-  //     .then((response) => response.json())
-  //     .then((data) => setCardData(data));
-  // }, []);
+  useEffect(() => {
+
+    // fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/card-data/")
+    //   .then((response) => response.json())
+    //   .then((data) => setCardData(data));
+   
+  }, []);
 
   const daysOptions = [
     {

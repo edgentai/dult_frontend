@@ -2,14 +2,14 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from "recharts";
 
 const data = [
-  { name: "Ticketing Issue", value1: 12, value2: 10, value3: 8, value4: 7, value5: 5, value6: 3 },
-  { name: "Crew behaviour", value1: 14, value3: 10 },
-  { name: "Vehicle related", value2: 8, value1: 6 },
-  { name: "Route", value4: 15 },
-  { name: "Pass/reserved seat", value5: 16 },
-  { name: "Facility related", value2: 14 },
-  { name: "App/website related", value1: 5 },
-  { name: "Others", value6: 3 },
+  { name: "Ticketing Issue", value1: 1000, value2: 600, value3: 900, value4: 800, value5: 500, value6: 300 },
+  { name: "Crew behaviour", value1: 140, value3: 500 },
+  { name: "Vehicle related", value2: 800, value1: 600 },
+  { name: "Route", value4: 600 },
+  { name: "Pass/reserved seat", value5: 700 },
+  { name: "Facility related", value2: 700 },
+  { name: "App/website related", value1: 500 },
+  { name: "Others", value6: 300 },
 ];
 
 const colors = ["#F6828C", "#F6E382", "#9182F6", "#F682EA", "#064A94", "#007AFF"];

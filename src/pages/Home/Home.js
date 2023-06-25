@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar";
 import LineChart from "../../components/LineChart";
 import StackBarChart from "../../components/StackBarChart";
-import SimpleBarChart from "../../components/SimpleBarChart";
 import "react-date-picker/dist/DatePicker.css";
 
 import DateRangePicker from "@wojtekmaj/react-daterange-picker";
@@ -12,7 +11,7 @@ import "react-calendar/dist/Calendar.css";
 
 import CustomSelect from "../../components/CustomSelect";
 
-const Home = ({ isDashboard = false }) => {
+const Home = () => {
   const [startDateValue, startDateOnChange] = useState(["", ""]);
   const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState(["", ""]);
   const [daysSelectedValue, setDaysSelectedValue] = useState("daily");
@@ -36,6 +35,10 @@ const Home = ({ isDashboard = false }) => {
     setDaysSelectedValue(event.target.value);
   };
 
+  const handleLineGraphDateRange = (e) => {};
+
+  console.log("setStartDateValueStackBarChart", startDateValueStackBarChart);
+
   return (
     <div className="page-container">
       <SideBar></SideBar>
@@ -48,11 +51,11 @@ const Home = ({ isDashboard = false }) => {
             </div>
 
             <div className="complains-suggestions">
-              <p className="com-text">Complaints</p>
+              <p className="com-text">Positive Sentiment</p>
               <p className="com-per">18</p>
             </div>
             <div className="complains-suggestions">
-              <p className="com-text">Suggestions</p>
+              <p className="com-text">Negative Sentiment</p>
               <p className="com-per">12</p>
             </div>
             <div className="complains-suggestions">

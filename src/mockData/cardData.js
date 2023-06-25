@@ -1,5 +1,5 @@
-const cardData = {
-    'weekly tweet_count_card': 58,
+const cardMockData = {
+    'weekly_tweet_count_card': 58,
     'sentiment': {
         'Neutral': 36,
         'Negative': 14,
@@ -7,7 +7,8 @@ const cardData = {
         'Positive': 2
     },
     'intent': {
-        'Appeal/Complaint/Request': 36,
-        'Urgent Actionable': 3
+        'Appeal_Complaint_Request': 36,
+        'Urgent_Actionable': 3
     }
 };
+export default cardMockData;

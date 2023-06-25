@@ -10,6 +10,7 @@ import "@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css";
 import "react-calendar/dist/Calendar.css";
 
 import CustomSelect from "../../components/CustomSelect";
+import cardMockData from "../../mockData/cardData";
 
 const Home = () => {
   const [startDateValue, startDateOnChange] = useState(["", ""]);
@@ -18,11 +19,10 @@ const Home = () => {
   const [cardData, setCardData] = useState({});
 
   useEffect(() => {
-
-    // fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/card-data/")
-    //   .then((response) => response.json())
-    //   .then((data) => setCardData(data));
-   
+    fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/card-data/")
+      .then((response) => response.json())
+      .then((data) => setCardData(data));
+   //setCardData(cardMockData);
   }, []);
 
   const daysOptions = [
@@ -49,32 +49,35 @@ const Home = () => {
   return (
     <div className="page-container">
       <SideBar></SideBar>
-      <div className="content-container">
+
+       <div className="content-container">
         <div className="all-complains-container">
+        {cardData && cardData.sentiment ? 
           <div className="title complains-suggestions-section">
             <div className="complains-suggestions">
               <p className="com-text">Total Tweets</p>
-              <p className="com-per">547</p>
+              <p className="com-per">{cardData.tweet_count_card}</p>
             </div>
 
             <div className="complains-suggestions">
               <p className="com-text">Positive Sentiment</p>
-              <p className="com-per">18</p>
+              <p className="com-per">{cardData.sentiment.Positive}</p>
             </div>
             <div className="complains-suggestions">
               <p className="com-text">Negative Sentiment</p>
-              <p className="com-per">12</p>
+              <p className="com-per">{cardData.sentiment.Negative}</p>
             </div>
             <div className="complains-suggestions">
               <p className="com-text">Urgent</p>
-              <p className="com-per">10</p>
+              <p className="com-per">{cardData.intent.urgent_actionable}</p>
             </div>
             <div className="complains-suggestions">
               <p className="com-text">Appeal</p>
-              <p className="com-per">14</p>
+              <p className="com-per">{cardData.intent.appeal}</p>
             </div>
           </div>
-        </div>
+          : null}
+        </div> 
         <div className="line-chart">
           <div className="stack-bar-chart-header flex-end">
             <div className="stack-bar-filter">

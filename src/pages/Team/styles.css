@@ -1,0 +1,11 @@
+.team-container h2, .team-container h5{
+    color: #000;
+}
+.team-container .MuiDataGrid-columnHeadersInner {
+    border: 1px solid rgba(81, 81, 81, 1) !important;
+    border-bottom: 1px solid rgba(81, 81, 81, 1) !important;
+}
+/* .team-table .MuiDataGrid-columnHeaders{
+    background-color: transparent !important;
+    color: #000 !important;
+}    */

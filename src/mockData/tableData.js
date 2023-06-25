@@ -1,4 +1,4 @@
-const tableData = {
+const tableMockData = {
     'id': ['2023-06-05 05:39:33_ɪꜱʜᴀQ ꜱᴀᴡᴋᴀʀ@Mishaqsawkar_twitter',
         '2023-06-05 05:53:23_செந்தமிழன் நவீன் குமார்@naveenkrd_twitter',
         '2023-06-05 06:03:56_Tamil Selvam@tamilvetri84_twitter',
@@ -413,3 +413,4 @@ const tableData = {
         'For ur info n action'
     ]
 }
+export default tableMockData;

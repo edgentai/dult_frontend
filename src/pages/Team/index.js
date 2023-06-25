@@ -3,37 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { useRecoilValue } from "recoil";
-import textState from "../../atom";
 
 import Header from "../../components/Header";
 
 const Team = () => {
+  const [tableData, setTableData] = useState([]);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const api_data = useRecoilValue(textState);
-  console.log("api_dataindex", api_data?.message?.tweet_data);
-
-  const id = api_data?.message?.tweet_data?.id;
-  const date = api_data?.message?.tweet_data?.Date;
-  const intent = api_data?.message?.tweet_data?.Intent;
-  const sentiment = api_data?.message?.tweet_data?.Sentiment;
-  const sub_class = api_data?.message?.tweet_data?.Sub_Class;
-  const super_class = api_data?.message?.tweet_data?.Super_Class;
-  const user_message = api_data?.message?.tweet_data?.user_message;
-
-  var req_data = [];
-  for (let idx = 0; idx < id.length; idx += 1) {
-    const req_dict = {};
-    req_dict["id"] = id[idx];
-    req_dict["date"] = date[idx];
-    req_dict["intent"] = intent[idx];
-    req_dict["sentiment"] = sentiment[idx];
-    req_dict["subclass"] = sub_class[idx];
-    req_dict["superclass"] = super_class[idx];
-    req_dict["usermessage"] = user_message[idx];
-    req_data.push(req_dict);
-  }
 
   const columns = [
     { field: "id", headerName: "ID" },
@@ -72,6 +48,12 @@ const Team = () => {
     },
   ];
 
+  // useEffect(() => {
+  //   fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/tweet-data/")
+  //     .then((response) => response.json())
+  //     .then((data) => setTableData(data));
+  // }, []);
+
   return (
     <Box m="20px">
       <Header title="Grievance Messages" subtitle="View Today's Important Messages" />
@@ -104,7 +86,7 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={req_data} columns={columns} />
+        <DataGrid checkboxSelection rows={""} columns={columns} />
       </Box>
     </Box>
   );

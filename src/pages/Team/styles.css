@@ -2,10 +2,34 @@
     color: #000;
 }
 .team-container .MuiDataGrid-columnHeadersInner {
-    border: 1px solid rgba(81, 81, 81, 1) !important;
-    border-bottom: 1px solid rgba(81, 81, 81, 1) !important;
+    /* border: 1px solid rgba(81, 81, 81, 1) !important;
+    border-bottom: 1px solid rgba(81, 81, 81, 1) !important; */
 }
-/* .team-table .MuiDataGrid-columnHeaders{
+.team-table .MuiDataGrid-columnHeaders{
     background-color: transparent !important;
     color: #000 !important;
-}    */
+}
+.css-1hdoz5b-MuiDataGrid-root .MuiDataGrid-withBorderColor {
+    border: 1px solid #000 !important;
+}
+.css-1grk8yk .MuiDataGrid-virtualScroller {
+    background-color: #fff !important;
+}
+.css-1hdoz5b-MuiDataGrid-root .MuiDataGrid-cellContent {
+    color: #000;
+}
+.css-1grk8yk .MuiDataGrid-footerContainer {
+    background-color: #fff !important;
+}
+.css-a2r8js-MuiInputBase-root-MuiTablePagination-select {
+    color: #000;
+}
+.css-1rt5bto-MuiTablePagination-selectLabel {
+    color: #000;
+}
+.css-wywq3z-MuiSelect-select-MuiInputBase-input.css-wywq3z-MuiSelect-select-MuiInputBase-input.css-wywq3z-MuiSelect-select-MuiInputBase-input {
+    color: #000;
+}
+.css-7ms3qr-MuiTablePagination-displayedRows {
+    color: #000;
+}

@@ -12,9 +12,12 @@ import "react-calendar/dist/Calendar.css";
 import CustomSelect from "../../components/CustomSelect";
 import cardMockData from "../../mockData/cardData";
 
+import moment from 'moment';
+
+
 const Home = () => {
-  const [startDateValue, startDateOnChange] = useState(["", ""]);
-  const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState(["", ""]);
+  const [startDateValue, startDateOnChange] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
+  const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
   const [daysSelectedValue, setDaysSelectedValue] = useState("daily");
   const [cardData, setCardData] = useState({});
 
@@ -44,7 +47,7 @@ const Home = () => {
     setDaysSelectedValue(event.target.value);
   };
 
-  console.log("setStartDateValueStackBarChart", startDateValueStackBarChart);
+  //console.log("setStartDateValueStackBarChart", startDateValueStackBarChart);
 
   return (
     <div className="page-container">

@@ -16,8 +16,8 @@ import moment from 'moment';
 
 
 const Home = () => {
-  const [startDateValue, startDateOnChange] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
   const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
+  const [startDateValue, startDateOnChange] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
   const [daysSelectedValue, setDaysSelectedValue] = useState("daily");
   const [cardData, setCardData] = useState({});
 
@@ -47,11 +47,9 @@ const Home = () => {
     setDaysSelectedValue(event.target.value);
   };
 
-  //console.log("setStartDateValueStackBarChart", startDateValueStackBarChart);
-
   return (
     <div className="page-container">
-      <SideBar></SideBar>
+      <SideBar currentPage={"home"}></SideBar>
 
        <div className="content-container">
         <div className="all-complains-container">
@@ -92,7 +90,7 @@ const Home = () => {
               <DateRangePicker value={startDateValueStackBarChart} onChange={setStartDateValueStackBarChart} yearPlaceholder="YYYY" dayPlaceholder="DD" monthPlaceholder="MM"></DateRangePicker>
             </div>
           </div>
-          <LineChart></LineChart>
+          <LineChart filterByDayBasic={daysSelectedValue} dateDetails = {startDateValueStackBarChart}></LineChart>
         </div>
         <div className="stack-bar-chart">
           <div className="stack-bar-chart-header flex-end">
@@ -105,7 +103,7 @@ const Home = () => {
               <DateRangePicker value={startDateValue} onChange={startDateOnChange} yearPlaceholder="YYYY" dayPlaceholder="DD" monthPlaceholder="MM"></DateRangePicker>
             </div>
           </div>
-          <StackBarChart />
+          <StackBarChart dateDetails = {startDateValue}/>
         </div>
       </div>
       <div className="tweets-topic-container">

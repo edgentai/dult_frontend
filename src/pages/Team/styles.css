@@ -5,8 +5,9 @@
     /* border: 1px solid rgba(81, 81, 81, 1) !important;
     border-bottom: 1px solid rgba(81, 81, 81, 1) !important; */
 }
+
 .team-table .MuiDataGrid-columnHeaders{
-    background-color: transparent !important;
+    background-color: #32485a;
     color: #000 !important;
 }
 .css-1hdoz5b-MuiDataGrid-root .MuiDataGrid-withBorderColor {
@@ -19,7 +20,7 @@
     color: #000;
 }
 .css-1grk8yk .MuiDataGrid-footerContainer {
-    background-color: #fff !important;
+    background-color: #32485a !important;
 }
 .css-a2r8js-MuiInputBase-root-MuiTablePagination-select {
     color: #000;
@@ -32,4 +33,9 @@
 }
 .css-7ms3qr-MuiTablePagination-displayedRows {
     color: #000;
+}
+.css-t89xny-MuiDataGrid-columnHeaderTitle {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
 }

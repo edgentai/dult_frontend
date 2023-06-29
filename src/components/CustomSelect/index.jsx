@@ -2,6 +2,11 @@ import React from 'react';
 import "./style.css";
 
 const CustomSelect = ({ options, value, onChange, disabled, className }) => {
+  // const handlerOnChange = ()=> {
+  //   if(typeof onChange == "function") {
+  //     onChange(value);
+  //   }
+  // }
   return (
     <select
       value={value}

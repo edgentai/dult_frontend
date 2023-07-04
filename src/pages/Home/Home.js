@@ -12,20 +12,19 @@ import "react-calendar/dist/Calendar.css";
 import CustomSelect from "../../components/CustomSelect";
 import cardMockData from "../../mockData/cardData";
 
-import moment from 'moment';
-
+import moment from "moment";
 
 const Home = () => {
-  const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
-  const [startDateValue, startDateOnChange] = useState([moment().subtract(7, 'days').calendar(), new Date()]);
+  const [startDateValueStackBarChart, setStartDateValueStackBarChart] = useState([moment().subtract(7, "days").calendar(), new Date()]);
+  const [startDateValue, startDateOnChange] = useState([moment().subtract(7, "days").calendar(), new Date()]);
   const [daysSelectedValue, setDaysSelectedValue] = useState("daily");
   const [cardData, setCardData] = useState({});
 
   useEffect(() => {
-    fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/card-data/")
+    fetch("https://q8n569c2w6.execute-api.us-east-1.amazonaws.com/")
       .then((response) => response.json())
       .then((data) => setCardData(data));
-   //setCardData(cardMockData);
+    //setCardData(cardMockData);
   }, []);
 
   const daysOptions = [
@@ -51,34 +50,34 @@ const Home = () => {
     <div className="page-container">
       <SideBar currentPage={"home"}></SideBar>
 
-       <div className="content-container">
+      <div className="content-container">
         <div className="all-complains-container">
-        {cardData && cardData.sentiment ? 
-          <div className="title complains-suggestions-section">
-            <div className="complains-suggestions">
-              <p className="com-text">Total Tweets</p>
-              <p className="com-per">{cardData.tweet_count_card}</p>
-            </div>
+          {cardData && cardData.sentiment ? (
+            <div className="title complains-suggestions-section">
+              <div className="complains-suggestions">
+                <p className="com-text">Total Tweets</p>
+                <p className="com-per">{cardData.tweet_count_card}</p>
+              </div>
 
-            <div className="complains-suggestions">
-              <p className="com-text">Positive Sentiment</p>
-              <p className="com-per">{cardData.sentiment.Positive}</p>
+              <div className="complains-suggestions">
+                <p className="com-text">Positive Sentiment</p>
+                <p className="com-per">{cardData.sentiment.Positive}</p>
+              </div>
+              <div className="complains-suggestions">
+                <p className="com-text">Negative Sentiment</p>
+                <p className="com-per">{cardData.sentiment.Negative}</p>
+              </div>
+              <div className="complains-suggestions">
+                <p className="com-text">Urgent</p>
+                <p className="com-per">{cardData.intent.urgent_actionable}</p>
+              </div>
+              <div className="complains-suggestions">
+                <p className="com-text">Appeal</p>
+                <p className="com-per">{cardData.intent.appeal}</p>
+              </div>
             </div>
-            <div className="complains-suggestions">
-              <p className="com-text">Negative Sentiment</p>
-              <p className="com-per">{cardData.sentiment.Negative}</p>
-            </div>
-            <div className="complains-suggestions">
-              <p className="com-text">Urgent</p>
-              <p className="com-per">{cardData.intent.urgent_actionable}</p>
-            </div>
-            <div className="complains-suggestions">
-              <p className="com-text">Appeal</p>
-              <p className="com-per">{cardData.intent.appeal}</p>
-            </div>
-          </div>
-          : null}
-        </div> 
+          ) : null}
+        </div>
         <div className="line-chart">
           <div className="stack-bar-chart-header flex-end">
             <div className="stack-bar-filter">
@@ -90,7 +89,7 @@ const Home = () => {
               <DateRangePicker value={startDateValueStackBarChart} onChange={setStartDateValueStackBarChart} yearPlaceholder="YYYY" dayPlaceholder="DD" monthPlaceholder="MM"></DateRangePicker>
             </div>
           </div>
-          <LineChart filterByDayBasic={daysSelectedValue} dateDetails = {startDateValueStackBarChart}></LineChart>
+          <LineChart filterByDayBasic={daysSelectedValue} dateDetails={startDateValueStackBarChart}></LineChart>
         </div>
         <div className="stack-bar-chart">
           <div className="stack-bar-chart-header flex-end">
@@ -103,7 +102,7 @@ const Home = () => {
               <DateRangePicker value={startDateValue} onChange={startDateOnChange} yearPlaceholder="YYYY" dayPlaceholder="DD" monthPlaceholder="MM"></DateRangePicker>
             </div>
           </div>
-          <StackBarChart dateDetails = {startDateValue}/>
+          <StackBarChart dateDetails={startDateValue} />
         </div>
       </div>
       <div className="tweets-topic-container">

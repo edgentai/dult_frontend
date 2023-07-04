@@ -12,8 +12,6 @@ const StackedBarChart = (props) => {
    const [keyMapping, setKeyMapping] = useState([]);
 //   const barChatData = [{
 //     "name": "Route",
-//     "value1": 11,
-//     "value1label": "irregularoperation",
 //     "irregularoperation": 11,
 //     "routedeviation": 43,
 //     "partialtrip": 16,
@@ -66,11 +64,14 @@ const StackedBarChart = (props) => {
 //     "name": "Website_OR_App Related Issue",
 //     "mobileapprelated": 5,
 //     "websiterelatedcomplaints": 2
-// }];
+//   }];
+
+
+  // console.log(uniqueLabels);
   useEffect(() => {
     const startDate = moment(props.dateDetails[0]).format("YYYY-MM-DD");
     const endDate = moment(props.dateDetails[1]).format("YYYY-MM-DD");
-    const mappingObject = []
+    let mappingObject = []
     fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/bar-graph/", {
       method: "POST",
       headers: {
@@ -86,6 +87,7 @@ const StackedBarChart = (props) => {
       .then((data) => {
         setBarChatData(data);
         var realData = [];
+        let mappingObjectForBar = [];
         for (var key in data) {
             var value = data[key];
             var obj = {
@@ -95,7 +97,7 @@ const StackedBarChart = (props) => {
               var label = Object.keys(data[key][key1])[0].toLowerCase();
               label = label.replaceAll(" ", "");
               if(typeof obj[label] == "undefined" && label.length ) {
-                mappingObject.push({name: label, colorCode: colors[Math.floor(Math.random() * 10)]})
+                //mappingObject.push({name: label, colorCode: colors[Math.floor(Math.random() * 10)]})
                 obj[label] = parseInt(Object.values(data[key][key1])[0]);
               } 
             } 
@@ -106,10 +108,33 @@ const StackedBarChart = (props) => {
         } else {
           setNoResultsFound(false)
         }
-        console.log(realData);
+
+        var uniqueLabels = [];
+        for(var i = 0; i < realData.length; i++) {
+          let uniqueKeys = Object.keys(realData[i]); 
+          uniqueLabels = uniqueLabels.concat(uniqueKeys);
+        }
         
-        setBarChatData(realData);
-        setKeyMapping(mappingObject);
+        uniqueLabels = [...new Set(uniqueLabels)];
+        mappingObjectForBar = uniqueLabels.filter((item)=> {
+          return item != "name";
+        });
+
+        console.log(uniqueLabels);
+        var newObjectDetails = [];
+        for(var object in realData) {
+          var obj1 = {};
+          for(var p = 0; p < uniqueLabels.length; p++) {
+            if (typeof obj1[uniqueLabels[p]] == "undefined") {
+              obj1[uniqueLabels[p]] = realData[object][uniqueLabels[p]] ? realData[object][uniqueLabels[p]] : 0;
+            } else {
+              obj1[uniqueLabels[p]] = 0;
+            }
+          }
+          newObjectDetails.push(obj1);
+        }
+        setBarChatData(newObjectDetails);
+        setKeyMapping(mappingObjectForBar);
       });
   }, [props.dateDetails]);
 
@@ -131,7 +156,7 @@ const StackedBarChart = (props) => {
         <Bar dataKey="value5" stackId="a" fill={colors[4]} />
         <Bar dataKey="value6" stackId="a" fill={colors[5]} /> */}
         {keyMapping.map((item) => 
-          <Bar  key={item} dataKey={item.name} stackId="a" fill={item.colorCode} />
+          <Bar key={item} dataKey={item} stackId="a" fill={colors[Math.floor(Math.random() * 10)]} />
         )}
       </BarChart>
       </>

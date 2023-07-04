@@ -107,11 +107,10 @@ const LineChartGraph = (props)=> {
             color: "blue"
           };
           for (var key in data) {
-            if (data[key].length) {
+            if (data[key]) {
               //console.log(key) // 2023-01-15
               //console.log(data[key]); //(2) [{…}, {…}]
               var obj = {};
-
               for (var j = 0; j < data[key].length; j++) {
                 if (data[key][j] && data[key][j].hasOwnProperty("appeal")) {
                   obj.appeal = data[key][j]["appeal"];

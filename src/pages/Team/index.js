@@ -48,6 +48,11 @@ const Team = () => {
       headerName: "User_Message",
       flex: 1,
     },
+    {
+      field: "assignee",
+      headerName: "Assignee",
+      flex: 1
+    }
   ];
 
   // useEffect(() => {
@@ -60,8 +65,6 @@ const Team = () => {
       .then((response) => response.json())
       .then((data) => {
         //setTableData(data)
-        console.log("real data");
-        console.log(data);
 
         var tableRowData = [];
         var intialLength = data["Date"].length; 
@@ -73,7 +76,8 @@ const Team = () => {
             sentiment: data["Sentiment"][i],
             subclass: data["Sub_Class"][i],
             superclass: data["Super_Class"][i],
-            usermessage: data["user_message"][i]
+            usermessage: data["user_message"][i],
+            assignee: ""
           }
           tableRowData.push(obj)
         }

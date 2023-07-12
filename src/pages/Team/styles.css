@@ -10,6 +10,9 @@
     background-color: #32485a;
     color: #000 !important;
 }
+.team-table .MuiDataGrid-footerContainer {
+    background-color: #32485a;
+}
 .css-1hdoz5b-MuiDataGrid-root .MuiDataGrid-withBorderColor {
     border: 1px solid #000 !important;
 }
@@ -19,20 +22,20 @@
 .css-1hdoz5b-MuiDataGrid-root .MuiDataGrid-cellContent {
     color: #000;
 }
-.css-1grk8yk .MuiDataGrid-footerContainer {
+/* .css-1grk8yk .MuiDataGrid-footerContainer {
     background-color: #32485a !important;
-}
+} */
 .css-a2r8js-MuiInputBase-root-MuiTablePagination-select {
     color: #000;
 }
 .css-1rt5bto-MuiTablePagination-selectLabel {
-    color: #000;
+    color: #fff;
 }
 .css-wywq3z-MuiSelect-select-MuiInputBase-input.css-wywq3z-MuiSelect-select-MuiInputBase-input.css-wywq3z-MuiSelect-select-MuiInputBase-input {
-    color: #000;
+    color: #fff;
 }
 .css-7ms3qr-MuiTablePagination-displayedRows {
-    color: #000;
+    color: #fff;
 }
 .css-t89xny-MuiDataGrid-columnHeaderTitle {
     font-size: 16px;

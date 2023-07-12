@@ -76,7 +76,6 @@ const LineChartGraph = (props)=> {
 
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
-    console.log(props.dateDetails.length);
     if(props.dateDetails.length) {
       const startDate = moment(props.dateDetails[0]).format("YYYY-MM-DD");
       const endDate = moment(props.dateDetails[1]).format("YYYY-MM-DD");
@@ -90,7 +89,6 @@ const LineChartGraph = (props)=> {
             "group_range": props.filterByDayBasic
         })
       };
-      console.log(props.filterByDayBasic);
       fetch('http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/line-chart/', requestOptions)
         .then(response => response.json())
         .then(data => {
@@ -143,8 +141,21 @@ const LineChartGraph = (props)=> {
               }
             }
           }
+          const datasorting1  = issueType1.data.sort((a,b) => {
+              return moment(a.category, 'YYYY-MM-DD') - moment(b.category, 'YYYY-MM-DD');
+          });
+          const datasorting2  = issueType2.data.sort((a,b) => {
+              return moment(a.category, 'YYYY-MM-DD') - moment(b.category, 'YYYY-MM-DD');
+          });
+          issueType1.data = datasorting1;
+          issueType2.data = datasorting2;
+          //console.log(datasorting1);
+
           lineChartDataObj.push(issueType1);
           lineChartDataObj.push(issueType2);
+          
+          
+
           setLineChatData(lineChartDataObj);
           if(lineChartDataObj[0].data.length == 0 && lineChartDataObj[1].data.length == 0) {
             setNoResultsFound(true);

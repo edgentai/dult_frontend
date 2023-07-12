@@ -120,15 +120,14 @@ const StackedBarChart = (props) => {
           return item != "name";
         });
 
-        console.log(uniqueLabels);
         var newObjectDetails = [];
         for(var object in realData) {
           var obj1 = {};
           for(var p = 0; p < uniqueLabels.length; p++) {
             if (typeof obj1[uniqueLabels[p]] == "undefined") {
-              obj1[uniqueLabels[p]] = realData[object][uniqueLabels[p]] ? realData[object][uniqueLabels[p]] : 0;
+              obj1[uniqueLabels[p]] = realData[object][uniqueLabels[p]] ? realData[object][uniqueLabels[p]] : null;
             } else {
-              obj1[uniqueLabels[p]] = 0;
+              obj1[uniqueLabels[p]] = null;
             }
           }
           newObjectDetails.push(obj1);
@@ -147,7 +146,7 @@ const StackedBarChart = (props) => {
       <>
       <BarChart width={800} height={400} data={barChatData} layout="vertical" barCategoryGap={5}>
         <XAxis type="number" orientation="top" />
-        <YAxis width={100} type="category" dataKey="name" margin={{ left: 40 }} />
+        <YAxis width={150} type="category" dataKey="name" margin={{ left: 40 }} />
         <Tooltip />
         {/* <Bar dataKey="value1" stackId="a" fill={colors[0]} />
         <Bar dataKey="value2" stackId="a" fill={colors[1]} />

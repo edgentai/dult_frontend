@@ -3,13 +3,11 @@ import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from "recharts";
 import moment from 'moment';
 
 
-const colors = ["#F6828C", "#F6E382", "#9182F6", "#F682EA", "#064A94", "#007AFF", "#F6828C", "#F6E382", "#9182F6", "#F682EA", "#064A94", "#007AFF"];
-
-
 const StackedBarChart = (props) => {
    const [barChatData, setBarChatData] = useState([]);
    const [noResultsFound, setNoResultsFound] = useState(false);
    const [keyMapping, setKeyMapping] = useState([]);
+   const [colorCodes, setColorCodes] = useState([]);
 //   const barChatData = [{
 //     "name": "Route",
 //     "irregularoperation": 11,
@@ -69,6 +67,29 @@ const StackedBarChart = (props) => {
 
   // console.log(uniqueLabels);
   useEffect(() => {
+    const colorCodes = [];
+    function generateRandomColorCode() {
+      // Generate random RGB values
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+
+      // Convert RGB to hexadecimal
+      var colorCode = '#' + red.toString(16) + green.toString(16) + blue.toString(16);
+
+      return colorCode;
+    }
+
+    // Generate 60 random unique color codes
+    for (var i = 0; i < 60; i++) {
+      var randomColor = generateRandomColorCode();
+      // Check if the color code is already generated
+      if (!colorCodes.includes(randomColor)) {
+        colorCodes.push(randomColor);
+      }
+    }
+    setColorCodes(colorCodes);
+
     const startDate = moment(props.dateDetails[0]).format("YYYY-MM-DD");
     const endDate = moment(props.dateDetails[1]).format("YYYY-MM-DD");
     let mappingObject = []
@@ -154,8 +175,8 @@ const StackedBarChart = (props) => {
         <Bar dataKey="value4" stackId="a" fill={colors[3]} />
         <Bar dataKey="value5" stackId="a" fill={colors[4]} />
         <Bar dataKey="value6" stackId="a" fill={colors[5]} /> */}
-        {keyMapping.map((item) => 
-          <Bar key={item} dataKey={item} stackId="a" fill={colors[Math.floor(Math.random() * 10)]} />
+        {keyMapping.map((item, index) => 
+          <Bar key={item} dataKey={item} stackId="a" fill={colorCodes[index]} />
         )}
       </BarChart>
       </>

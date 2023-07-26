@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <div className="page-container">
-      <SideBar currentPage={"home"}></SideBar>
+      <SideBar></SideBar>
 
       <div className="content-container">
         <div className="all-complains-container">
@@ -129,13 +129,43 @@ const Home = () => {
             <span>Bus arrived on time</span>
           </button>
           <button className="tweets-btn">
+            <span>Child Safety Measures</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Digital Payment Options</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Pass Renewal</span>
+          </button>
+          <button className="tweets-btn">
+            <span>Senior Citizen Assistance</span>
+          </button>
+          <button className="tweets-btn">
             <span>Appreciate the driver</span>
           </button>
           <button className="tweets-btn light-brown">
             <span>Neutral</span>
           </button>
+          <button className="tweets-btn light-brown">
+            <span>Seat Comfort</span>
+          </button>
+          <button className="tweets-btn light-brown">
+            <span>Hygiene Standards</span>
+          </button>
+          <button className="tweets-btn light-brown">
+            <span>Bus Stops</span>
+          </button>
           <button className="tweets-btn light-pink">
             <span>Didn't get change</span>
+          </button>
+          <button className="tweets-btn light-pink">
+            <span>Noise Pollution</span>
+          </button>
+          <button className="tweets-btn light-pink">
+            <span>Vehicle Breakdowns</span>
+          </button>
+          <button className="tweets-btn light-pink">
+            <span>Route Delays</span>
           </button>
         </div>
       </div>

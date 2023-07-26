@@ -1,24 +1,29 @@
-import "./styles.css";
 import React from "react";
-export default function App(props) {
+import { Link } from "react-router-dom";
+
+import "./styles.css";
+
+function SideBar() {
   return (
     <div className="page-side-bar">
-      <div className="logo-wrapper">Company logo</div>
+      <div className="logo-wrapper">
+        <img src="../../assets/thumb.png" alt="logo" />
+      </div>
       <div className="navigation-menu">
         <ul>
           <li>
-            <a href="/" className={props.currentPage == "home" ? "active": ""}>
-              Home
-            </a>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <a href="/team" className={props.currentPage == "team" ? "active": ""}>Table</a>
+            <Link to="/team">Team</Link>
           </li>
           <li>
-            <a href="">Reports</a>
+            <Link to="/">Sign Out</Link>
           </li>
         </ul>
       </div>
     </div>
   );
 }
+
+export default SideBar;

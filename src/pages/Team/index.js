@@ -12,7 +12,6 @@ const Team = () => {
   const [tableData, setTableData] = useState([]);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  //console.log(tableMockData);
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -51,8 +50,8 @@ const Team = () => {
     {
       field: "assignee",
       headerName: "Assignee",
-      flex: 1
-    }
+      flex: 1,
+    },
   ];
 
   // useEffect(() => {
@@ -61,14 +60,14 @@ const Team = () => {
   //     .then((data) => setTableData(data));
   // }, []);
   useEffect(() => {
-      fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/tweet-data/")
+    fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/tweet-data/")
       .then((response) => response.json())
       .then((data) => {
         //setTableData(data)
 
         var tableRowData = [];
-        var intialLength = data["Date"].length; 
-        for(var i = 0; i < intialLength; i++) {
+        var intialLength = data["Date"].length;
+        for (var i = 0; i < intialLength; i++) {
           var obj = {
             id: data["id"][i],
             date: data["Date"][i],
@@ -77,26 +76,25 @@ const Team = () => {
             subclass: data["Sub_Class"][i],
             superclass: data["Super_Class"][i],
             usermessage: data["user_message"][i],
-            assignee: ""
-          }
-          tableRowData.push(obj)
+            assignee: "",
+          };
+          tableRowData.push(obj);
         }
         setTableData(tableRowData);
       });
-    
-   // setTableData([{id: 1, date: "12-2-2012", intent: "intent", sentiment: "sentiment", subclass: "subclass", superclass: "superclass", usermessage: "User_Message"}])
+
+    // setTableData([{id: 1, date: "12-2-2012", intent: "intent", sentiment: "sentiment", subclass: "subclass", superclass: "superclass", usermessage: "User_Message"}])
   }, []);
 
   return (
-    
     <div className="page-container">
-      <SideBar currentPage={"team"}></SideBar>
-      <div className="content-container">
+      <SideBar></SideBar>
+      <div className="team-content-container">
         <Box m="20px" className="team-container">
-          <Header className="team-header" title="Grievance Messages" subtitle="View Today's Important Messages" />
+          <Header className="team-header" title="Grievance Messages" subtitle="" />
           <Box
-            m="40px 0 0 0"
-            height="75vh"
+            m="0 0 0 0"
+            height="80vh"
             sx={{
               "& .MuiDataGrid-root": {
                 border: "none",

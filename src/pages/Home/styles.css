@@ -5,7 +5,7 @@
 .line-chart {
     margin-bottom: 30px;
 }
-.content-container {
+/* .content-container {
     flex-basis: 70%;
     flex: 1;
     display: flex;
@@ -14,14 +14,21 @@
     box-sizing: border-box;
     padding-top: 50px;
     padding-bottom: 50px;
+} */
+.home-content-container {
+    padding: 15px 15px 50px 30px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
 }
 .stack-bar-chart-header .title {
     font-size: 20px;
 }
-.content-container .line-chart, .content-container .stack-bar-chart{
-    width: 800px;
+.home-content-container .line-chart, .home-content-container .stack-bar-chart{
+    width: 100%;
     padding: 15px;
     box-shadow: 0px 0px 56px #00000021;
+    box-sizing: border-box;
 }
 .stack-bar-chart-header {
     display: flex;
@@ -38,7 +45,7 @@
     display: flex;
 }
 .all-complains-container {
-    margin-bottom: 20px;
+    padding: 50px 0px 15px 30px;
 }
 .complains-suggestions {
     background: #EBF1F6 0% 0% no-repeat padding-box;
@@ -79,11 +86,10 @@
 }
 
 .page-container .tweets-topic-container {
-    height: auto;
-    flex-basis: 30%;
-    margin-top: 120px;
+    width: 30%;
     padding: 0 10px;
     box-shadow: 0px 0px 56px #00000021;
+    box-sizing: border-box;
 }
 
 .page-container .tweets-topic-container .tweets-heading {
@@ -107,4 +113,7 @@
 .light-pink {
     color: #F6828C;
     background: #FEE4E6 0% 0% no-repeat padding-box;
+}
+.home-page-charts-section {
+    width: 70%;
 }

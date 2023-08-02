@@ -1,8 +1,9 @@
 .page-side-bar {
-    width: 10%;
+    width: 20%;
     box-shadow: 5px 0px 50px #00000029;
     box-sizing: border-box;
-    padding: 30px 10px;
+    padding: 30px 0px 30px 10px;
+    background-color: #000;
 }
 
 .logo-wrapper {
@@ -23,13 +24,30 @@ margin-left: 25px;
     padding-left: 0px;
 }
 .navigation-menu ul li {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .navigation-menu ul li a {
-    color: #868A95;
+    color: #fff;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.navigation-menu ul li a:hover {
+    background-color: #3C3B3B;
+    transition: background-color 0.3s ease;
 }
 .navigation-menu ul li a.active {
-    color: #007AFF;
+    background-color: #3C3B3B;
+}
+.navigation-menu ul li a.active::after {
+    width: 5px;
+    height: 40px;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #FCBC3B;
 }

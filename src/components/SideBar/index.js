@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./styles.css";
 
-function SideBar() {
+function SideBar(props) {
   return (
     <div className="page-side-bar">
       <div className="logo-wrapper">
@@ -12,10 +12,10 @@ function SideBar() {
       <div className="navigation-menu">
         <ul>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard" className={`${props.activePage == "home" ? "active": ""}`}>Dashboard</Link>
           </li>
           <li>
-            <Link to="/team">Team</Link>
+            <Link to="/team" className={`${props.activePage == "team" ? "active": ""}`}>Team</Link>
           </li>
           <li>
             <Link to="/">Sign Out</Link>

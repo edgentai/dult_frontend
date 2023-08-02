@@ -88,8 +88,8 @@ const Team = () => {
 
   return (
     <div className="page-container">
-      <SideBar></SideBar>
-      <div className="team-content-container">
+      <SideBar activePage="team"></SideBar>
+      <div className="page-content-container">
         <Box m="20px" className="team-container">
           <Header className="team-header" title="Grievance Messages" subtitle="" />
           <Box
@@ -106,7 +106,7 @@ const Team = () => {
                 color: colors.greenAccent[300],
               },
               "& .MuiDataGrid-columnHeaders": {
-                backgroundColor: colors.blueAccent[700],
+                backgroundColor: '#09B2C6',
                 borderBottom: "none",
               },
               "& .MuiDataGrid-virtualScroller": {
@@ -114,7 +114,7 @@ const Team = () => {
               },
               "& .MuiDataGrid-footerContainer": {
                 borderTop: "none",
-                backgroundColor: colors.blueAccent[700],
+                backgroundColor: '#09B2C6',
               },
               "& .MuiCheckbox-root": {
                 color: `${colors.greenAccent[200]} !important`,

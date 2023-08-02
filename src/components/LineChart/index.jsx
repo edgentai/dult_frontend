@@ -7,7 +7,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 import moment from "moment";
 
@@ -173,19 +174,22 @@ const LineChartGraph = (props)=> {
       {noResultsFound ? 
         <div className="no-results-found">No Results Found for your search</div>
       : 
-      <LineChart width={800} height={300}>
-        <XAxis
-          dataKey="category"
-          type="category"
-          allowDuplicatedCategory={false}
-        />
-        <YAxis dataKey="value" orientation="right" />
-        <Tooltip />
-        <Legend />
-        {lineChatDate.map((s) => (
-          <Line dataKey="value" data={s.data} name={s.name} key={s.name} stroke={s.color}/>
-        ))}
-      </LineChart>
+      <ResponsiveContainer width={'100%'} height={300}>
+        <LineChart width='100%' height='100%'>
+          <XAxis
+            dataKey="category"
+            type="category"
+            allowDuplicatedCategory={false}
+          />
+          <YAxis dataKey="value" orientation="right" />
+          <Tooltip />
+          <Legend />
+          {lineChatDate.map((s) => (
+            <Line dataKey="value" data={s.data} name={s.name} key={s.name} stroke={s.color}/>
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+      
       }
     </>
   );

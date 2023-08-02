@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import moment from 'moment';
 
 
@@ -165,20 +165,22 @@ const StackedBarChart = (props) => {
         <div className="no-results-found">No Results Found for your search</div> 
       :
       <>
-      <BarChart width={800} height={400} data={barChatData} layout="vertical" barCategoryGap={5}>
-        <XAxis type="number" orientation="top" />
-        <YAxis width={150} type="category" dataKey="name" margin={{ left: 40 }} />
-        <Tooltip />
-        {/* <Bar dataKey="value1" stackId="a" fill={colors[0]} />
-        <Bar dataKey="value2" stackId="a" fill={colors[1]} />
-        <Bar dataKey="value3" stackId="a" fill={colors[2]} />
-        <Bar dataKey="value4" stackId="a" fill={colors[3]} />
-        <Bar dataKey="value5" stackId="a" fill={colors[4]} />
-        <Bar dataKey="value6" stackId="a" fill={colors[5]} /> */}
-        {keyMapping.map((item, index) => 
-          <Bar key={item} dataKey={item} stackId="a" fill={colorCodes[index]} />
-        )}
-      </BarChart>
+      <ResponsiveContainer width='100%' height={400}>
+        <BarChart width={'100%'} height={'100%'} data={barChatData} layout="vertical" barCategoryGap={5}>
+          <XAxis type="number" orientation="top" />
+          <YAxis width={150} type="category" dataKey="name" margin={{ left: 40 }} />
+          <Tooltip />
+          {/* <Bar dataKey="value1" stackId="a" fill={colors[0]} />
+          <Bar dataKey="value2" stackId="a" fill={colors[1]} />
+          <Bar dataKey="value3" stackId="a" fill={colors[2]} />
+          <Bar dataKey="value4" stackId="a" fill={colors[3]} />
+          <Bar dataKey="value5" stackId="a" fill={colors[4]} />
+          <Bar dataKey="value6" stackId="a" fill={colors[5]} /> */}
+          {keyMapping.map((item, index) => 
+            <Bar key={item} dataKey={item} stackId="a" fill={colorCodes[index]} />
+          )}
+        </BarChart>
+      </ResponsiveContainer>
       </>
     }
     </>

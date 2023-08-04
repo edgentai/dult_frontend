@@ -58,19 +58,19 @@ const Home = () => {
                   <p className="com-per">{cardData.tweet_count_card}</p>
                 </div>
 
-                <div className="complains-suggestions">
+                <div className="complains-suggestions green">
                   <p className="com-text">Positive Sentiment</p>
                   <p className="com-per">{cardData.sentiment.Positive}</p>
                 </div>
-                <div className="complains-suggestions">
+                <div className="complains-suggestions red">
                   <p className="com-text">Negative Sentiment</p>
                   <p className="com-per">{cardData.sentiment.Negative}</p>
                 </div>
-                <div className="complains-suggestions">
+                <div className="complains-suggestions red">
                   <p className="com-text">Urgent</p>
                   <p className="com-per">{cardData.intent.urgent_actionable}</p>
                 </div>
-                <div className="complains-suggestions">
+                <div className="complains-suggestions yello">
                   <p className="com-text">Appeal</p>
                   <p className="com-per">{cardData.intent.appeal}</p>
                 </div>
@@ -107,68 +107,70 @@ const Home = () => {
               </div>
             </div>
             <div className="tweets-topic-container">
-              <div className="tweets-heading">
-                <h3>Top Topics of this Week</h3>
-              </div>
-              <div className="all-tweets-btn">
-                <button className="tweets-btn">
-                  <span>Positive</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Honest</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Friendly Staff</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Good Service</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Best support team</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Bus arrived on time</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Child Safety Measures</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Digital Payment Options</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Pass Renewal</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Senior Citizen Assistance</span>
-                </button>
-                <button className="tweets-btn">
-                  <span>Appreciate the driver</span>
-                </button>
-                <button className="tweets-btn light-brown">
-                  <span>Neutral</span>
-                </button>
-                <button className="tweets-btn light-brown">
-                  <span>Seat Comfort</span>
-                </button>
-                <button className="tweets-btn light-brown">
-                  <span>Hygiene Standards</span>
-                </button>
-                <button className="tweets-btn light-brown">
-                  <span>Bus Stops</span>
-                </button>
-                <button className="tweets-btn light-pink">
-                  <span>Didn't get change</span>
-                </button>
-                <button className="tweets-btn light-pink">
-                  <span>Noise Pollution</span>
-                </button>
-                <button className="tweets-btn light-pink">
-                  <span>Vehicle Breakdowns</span>
-                </button>
-                <button className="tweets-btn light-pink">
-                  <span>Route Delays</span>
-                </button>
-              </div>
+                <div className="tweets-topics-wrapper">
+                    <div className="tweets-heading">
+                      <h3>Top Topics of this Week</h3>
+                    </div>
+                    <div className="all-tweets-btn">
+                      <button className="tweets-btn">
+                        <span>Positive</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Honest</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Friendly Staff</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Good Service</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Best support team</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Bus arrived on time</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Child Safety Measures</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Digital Payment Options</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Pass Renewal</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Senior Citizen Assistance</span>
+                      </button>
+                      <button className="tweets-btn">
+                        <span>Appreciate the driver</span>
+                      </button>
+                      <button className="tweets-btn light-brown">
+                        <span>Neutral</span>
+                      </button>
+                      <button className="tweets-btn light-brown">
+                        <span>Seat Comfort</span>
+                      </button>
+                      <button className="tweets-btn light-brown">
+                        <span>Hygiene Standards</span>
+                      </button>
+                      <button className="tweets-btn light-brown">
+                        <span>Bus Stops</span>
+                      </button>
+                      <button className="tweets-btn light-pink">
+                        <span>Didn't get change</span>
+                      </button>
+                      <button className="tweets-btn light-pink">
+                        <span>Noise Pollution</span>
+                      </button>
+                      <button className="tweets-btn light-pink">
+                        <span>Vehicle Breakdowns</span>
+                      </button>
+                      <button className="tweets-btn light-pink">
+                        <span>Route Delays</span>
+                      </button>
+                    </div>
+                </div>
             </div>
         </div>
         

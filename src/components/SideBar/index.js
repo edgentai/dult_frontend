@@ -7,7 +7,7 @@ function SideBar(props) {
   return (
     <div className="page-side-bar">
       <div className="logo-wrapper">
-        <img src="../../assets/thumb.png" alt="logo" />
+        <img src="../../assets/new-logo.png" alt="logo" />
       </div>
       <div className="navigation-menu">
         <ul>

@@ -49,11 +49,24 @@
 }
 .complains-suggestions {
     background: #EBF1F6 0% 0% no-repeat padding-box;
-    padding: 5px;
-    border-bottom: 2px solid #007AFF;
+    padding: 5px 10px;
+    border-bottom: 3px solid #007AFF;
+    text-align: center;
 }
+.complains-suggestions.yellow {
+    border-bottom: 3px solid yellow;
+}
+.complains-suggestions.green {
+    border-bottom: 3px solid green;
+}
+.complains-suggestions.red {
+    border-bottom: 3px solid red;
+}
+
+
+
 .complains-suggestions .com-text {
-    font-size: 16px;
+    font-size: 18px;
 }
 .complains-suggestions .com-per {
     font-weight: bold;
@@ -88,13 +101,12 @@
 .page-container .tweets-topic-container {
     width: 30%;
     padding: 0 10px;
-    box-shadow: 0px 0px 56px #00000021;
     box-sizing: border-box;
 }
 
 .page-container .tweets-topic-container .tweets-heading {
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 15px 30px 15px;
 }
 
 .tweets-btn {
@@ -116,4 +128,8 @@
 }
 .home-page-charts-section {
     width: 70%;
+}
+
+.tweets-topics-wrapper {
+    background-color: #fff;
 }

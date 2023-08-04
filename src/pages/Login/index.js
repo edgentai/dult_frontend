@@ -20,22 +20,30 @@ const ImageContainer = styled(Box)(({ theme }) => ({
 }));
 
 const LoginFormContainer = styled(Box)(({ theme }) => ({
-  flex: "0 0 30%",
+  width: "300px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
   padding: theme.spacing(4),
+  backgroundColor: "#FFF",
+  borderRadius: "15px"
 }));
 
 const LoginInput = styled(TextField)(({ theme }) => ({
   margin: theme.spacing(1),
   width: "100%",
+  input: {
+    
+  }
 }));
 
 const LoginButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(2),
   width: "100%",
+  input: {
+    
+  }
 }));
 
 const Login = () => {
@@ -67,19 +75,18 @@ const Login = () => {
   };
 
   return (
-    <LoginPageContainer>
-      <ImageContainer />
-      <LoginFormContainer>
-        <Typography variant="h4" gutterBottom>
-          Welcome to BMTC
-        </Typography>
-        <LoginInput label="Username" variant="outlined" value={username} onChange={handleUsernameChange} />
-        <LoginInput label="Password" type="password" variant="outlined" value={password} onChange={handlePasswordChange} />
-        <LoginButton variant="contained" color="primary" onClick={handleSubmit}>
-          Submit
-        </LoginButton>
-      </LoginFormContainer>
-    </LoginPageContainer>
+    <div className="login-page-wrapper">
+        <LoginFormContainer>
+          <Typography variant="h4" gutterBottom className="login-text">
+            Welcome to BMTC
+          </Typography>
+            <LoginInput size="small" label="Username" variant="outlined" value={username} onChange={handleUsernameChange} />
+            <LoginInput size="small" label="Password" type="password" variant="outlined" value={password} onChange={handlePasswordChange} />
+            <LoginButton variant="contained" color="primary" onClick={handleSubmit}>
+            Submit
+          </LoginButton>
+        </LoginFormContainer>
+    </div>
   );
 };
 

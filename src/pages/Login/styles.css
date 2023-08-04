@@ -2,3 +2,6 @@
   max-width: 1350px !important;
   margin-left: unset !important;
 }
+.login-page-wrapper {
+  height: 100%;
+}

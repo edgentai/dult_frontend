@@ -34,5 +34,22 @@ body,
   background: #555;
 }
 .page-content-container {
-  width: 80%;
+  width: 83%;
+}
+#root > div {
+  height: 100%;
+}
+.login-page-wrapper {
+  background-color: #677B89;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../public/assets/bus-image1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.login-text {
+  color: #000;
 }

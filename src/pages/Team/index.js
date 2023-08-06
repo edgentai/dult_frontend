@@ -1,15 +1,15 @@
 import "./styles.css";
 import React, { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Modal, Button, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 
 import Header from "../../components/Header";
-// import tableMockData from "../../mockData/tableData";
 
 const Team = () => {
   const [tableData, setTableData] = useState([]);
+  const [selectedRowData, setSelectedRowData] = useState(null);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -54,17 +54,10 @@ const Team = () => {
     },
   ];
 
-  // useEffect(() => {
-  //   fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/tweet-data/")
-  //     .then((response) => response.json())
-  //     .then((data) => setTableData(data));
-  // }, []);
   useEffect(() => {
     fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/tweet-data/")
       .then((response) => response.json())
       .then((data) => {
-        //setTableData(data)
-
         var tableRowData = [];
         var intialLength = data["Date"].length;
         for (var i = 0; i < intialLength; i++) {
@@ -82,9 +75,16 @@ const Team = () => {
         }
         setTableData(tableRowData);
       });
-
-    // setTableData([{id: 1, date: "12-2-2012", intent: "intent", sentiment: "sentiment", subclass: "subclass", superclass: "superclass", usermessage: "User_Message"}])
+    // setTableData([{ id: 1, date: "12-2-2012", intent: "intent", sentiment: "sentiment", subclass: "subclass", superclass: "superclass", usermessage: "User_Message" }]);
   }, []);
+
+  const handleRowClick = (params) => {
+    setSelectedRowData(params.row);
+  };
+
+  const handleModalClose = () => {
+    setSelectedRowData(null);
+  };
 
   return (
     <div className="page-container">
@@ -106,7 +106,7 @@ const Team = () => {
                 color: colors.greenAccent[300],
               },
               "& .MuiDataGrid-columnHeaders": {
-                backgroundColor: '#09B2C6',
+                backgroundColor: "#09B2C6",
                 borderBottom: "none",
               },
               "& .MuiDataGrid-virtualScroller": {
@@ -114,16 +114,41 @@ const Team = () => {
               },
               "& .MuiDataGrid-footerContainer": {
                 borderTop: "none",
-                backgroundColor: '#09B2C6',
+                backgroundColor: "#09B2C6",
               },
               "& .MuiCheckbox-root": {
                 color: `${colors.greenAccent[200]} !important`,
               },
             }}
           >
-            <DataGrid className="team-table" checkboxSelection rows={tableData} columns={columns} />
+            <DataGrid className="team-table" rows={tableData} columns={columns} onRowClick={handleRowClick} />
           </Box>
         </Box>
+        <Modal open={!!selectedRowData} onClose={handleModalClose}>
+          <Box className="modal">
+            {selectedRowData && (
+              <>
+                <h2>Selected Data</h2>
+                <p>ID: {selectedRowData.id}</p>
+                <p>Date: {selectedRowData.date}</p>
+                <p>Intent: {selectedRowData.intent}</p>
+                <p>Sentiment: {selectedRowData.sentiment}</p>
+                <p>Sub Class: {selectedRowData.subclass}</p>
+                <p>Super Class: {selectedRowData.superclass}</p>
+                <p>User Message: {selectedRowData.usermessage}</p>
+
+                <textarea rows={4} placeholder="Enter your comment here..." className="comment-textarea" />
+
+                <Button variant="contained" onClick={handleModalClose} className="submit-button">
+                  Submit
+                </Button>
+                <Button variant="contained" onClick={handleModalClose} className="submit-button">
+                  Close
+                </Button>
+              </>
+            )}
+          </Box>
+        </Modal>
       </div>
     </div>
   );

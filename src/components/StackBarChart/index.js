@@ -140,6 +140,7 @@ const StackedBarChart = (props) => {
         mappingObjectForBar = uniqueLabels.filter((item)=> {
           return item != "name";
         });
+        console.log(uniqueLabels);
 
         var newObjectDetails = [];
         for(var object in realData) {

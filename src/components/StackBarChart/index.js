@@ -116,7 +116,7 @@ const StackedBarChart = (props) => {
             }
             for (const key1 in data[key]) {
               var label = Object.keys(data[key][key1])[0].toLowerCase();
-              label = label.replaceAll(" ", "");
+              // label = label.replaceAll(" ", "");
               if(typeof obj[label] == "undefined" && label.length ) {
                 //mappingObject.push({name: label, colorCode: colors[Math.floor(Math.random() * 10)]})
                 obj[label] = parseInt(Object.values(data[key][key1])[0]);

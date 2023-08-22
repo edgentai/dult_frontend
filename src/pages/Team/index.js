@@ -10,6 +10,7 @@ import Header from "../../components/Header";
 const Team = () => {
   const [tableData, setTableData] = useState([]);
   const [selectedRowData, setSelectedRowData] = useState(null);
+  const [textAreaValue, setTextAreaValue] = useState("");
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -52,10 +53,15 @@ const Team = () => {
       headerName: "Assignee",
       flex: 1,
     },
+    {
+      field: "topic",
+      headerName: "Topic",
+      flex: 1,
+    },
   ];
 
   useEffect(() => {
-    fetch("http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/tweet-data/")
+    fetch("https://cy2ed1wj8b.execute-api.us-east-1.amazonaws.com")
       .then((response) => response.json())
       .then((data) => {
         var tableRowData = [];
@@ -70,6 +76,7 @@ const Team = () => {
             superclass: data["Super_Class"][i],
             usermessage: data["user_message"][i],
             assignee: "",
+            topic: data["Topic"][i],
           };
           tableRowData.push(obj);
         }
@@ -83,7 +90,26 @@ const Team = () => {
   };
 
   const handleModalClose = () => {
+    fetch("https://ozg4dhfzrk.execute-api.us-east-1.amazonaws.com", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: textAreaValue,
+        user_id: selectedRowData.id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("data", data);
+      });
     setSelectedRowData(null);
+  };
+
+  const handleTextAreaInput = (e) => {
+    setTextAreaValue(e.target.value);
   };
 
   return (
@@ -128,22 +154,39 @@ const Team = () => {
           <Box className="modal">
             {selectedRowData && (
               <>
-                <h2>Selected Data</h2>
-                <p>ID: {selectedRowData.id}</p>
-                <p>Date: {selectedRowData.date}</p>
-                <p>Intent: {selectedRowData.intent}</p>
-                <p>Sentiment: {selectedRowData.sentiment}</p>
-                <p>Sub Class: {selectedRowData.subclass}</p>
-                <p>Super Class: {selectedRowData.superclass}</p>
-                <p>User Message: {selectedRowData.usermessage}</p>
+                <h2>Complaint Info</h2>
+                <p>
+                  <span className="modal-tag">ID: </span>
+                  {selectedRowData.id}
+                </p>
+                <p>
+                  <span className="modal-tag">Date:</span> {selectedRowData.date}
+                </p>
+                <p>
+                  <span className="modal-tag">Intent:</span> {selectedRowData.intent}
+                </p>
+                <p>
+                  <span className="modal-tag">Sentiment:</span> {selectedRowData.sentiment}
+                </p>
+                <p>
+                  <span className="modal-tag">Sub Class: </span>
+                  {selectedRowData.subclass}
+                </p>
+                <p>
+                  <span className="modal-tag">Super Class: </span>
+                  {selectedRowData.superclass}
+                </p>
+                <p>
+                  <span className="modal-tag">User Message:</span> {selectedRowData.usermessage}
+                </p>
+                <p>
+                  <span className="modal-tag">Topic:</span> {selectedRowData.topic}
+                </p>
 
-                <textarea rows={4} placeholder="Enter your comment here..." className="comment-textarea" />
+                <textarea rows={4} placeholder="Enter your comment here..." className="comment-textarea" onChange={handleTextAreaInput} />
 
                 <Button variant="contained" onClick={handleModalClose} className="submit-button">
                   Submit
-                </Button>
-                <Button variant="contained" onClick={handleModalClose} className="submit-button">
-                  Close
                 </Button>
               </>
             )}

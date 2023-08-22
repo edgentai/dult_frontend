@@ -90,7 +90,7 @@ const LineChartGraph = (props)=> {
             "group_range": props.filterByDayBasic
         })
       };
-      fetch('http://ec2-44-193-126-1.compute-1.amazonaws.com:8000/recommendation/dashboard-data/line-chart/', requestOptions)
+      fetch('https://sko2h3tl0e.execute-api.us-east-1.amazonaws.com', requestOptions)
         .then(response => response.json())
         .then(data => {
           

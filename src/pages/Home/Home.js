@@ -74,7 +74,7 @@ const Home = () => {
             <div className="title complains-suggestions-section">
               <div className="complains-suggestions">
                 <p className="com-text">Total Tweets</p>
-                <p className="com-per">{cardData.tweet_count_card}</p>
+                <p className="com-per">1219</p>
               </div>
 
               <div className="complains-suggestions green">
